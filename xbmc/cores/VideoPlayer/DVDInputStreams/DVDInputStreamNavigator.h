@@ -101,6 +101,7 @@ public:
   void GetChapterName(std::string& name, int idx=-1) override {};
   int64_t GetChapterPos(int ch=-1) override;
   bool SeekChapter(int iChapter) override;
+  bool SeekTitle(int iTitle) override;
 
   CDVDInputStream::IDisplayTime* GetIDisplayTime() override { return this; }
   int GetTotalTime() override; // the total time in milli seconds
