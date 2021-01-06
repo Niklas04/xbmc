@@ -166,9 +166,11 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
 
   minDuration = minDuration * MAIN_TITLE_LENGTH_PERCENT / 100;
   
+   //char *disc_name = m_bd->disc_info.disc_name
+  const BLURAY_DISC_INFO *info;
+  info = bd_get_disc_info(m_bd);
   bd_get_meta(m_bd);
-    //char *disc_name = m_bd->disc_info.disc_name
-
+   
   for (auto& title : titleList)
   {
     if (title->duration < minDuration)
@@ -176,7 +178,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
 
     if( &m_bd->titles && &m_bd->title_type != 0 ) {
       //char *title_name = m_bd->titles[title->playlist]->name;
-      char *title_name = &m_bd->disc_info.titles[title->playlist]->name;
+      char *title_name = info->titles[title->playlist]->name;
       items.Add(GetTitle(title, title_name) );
     } else
       items.Add(GetTitle(title, main ? g_localizeStrings.Get(25004) /* Main Title */ : g_localizeStrings.Get(25005) /* Title */));
