@@ -923,6 +923,11 @@ int CDVDInputStreamBluray::GetChapterCount()
     return 0;
 }
 
+void *GetChapterName(std::string& name, int ch)
+{
+  name = "Test-Kapitel";
+}
+
 int CDVDInputStreamBluray::GetChapter()
 {
   if(m_titleInfo)
