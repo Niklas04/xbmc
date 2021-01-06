@@ -174,7 +174,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
     if (title->duration < minDuration)
       continue;
 
-    if( &m_bd->titles && &m_bd->title_type != title_undef) {
+    if( &m_bd->titles && &m_bd->title_type != 0 ) {
       //char *title_name = m_bd->titles[title->playlist]->name;
       char *title_name = &m_bd->disc_info.titles[title->playlist]->name;
       items.Add(GetTitle(title, title_name) );
