@@ -176,7 +176,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
 
     char *title_name = m_bd->titles[title->playlist]->name;
     if( title_name != NULL )
-      items.Add(GetTitle(title, title_name );
+      items.Add(GetTitle(title, title_name) );
     items.Add(GetTitle(title, main ? g_localizeStrings.Get(25004) /* Main Title */ : g_localizeStrings.Get(25005) /* Title */));
     bd_free_title_info(title);
   }
