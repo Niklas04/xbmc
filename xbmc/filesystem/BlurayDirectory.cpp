@@ -178,7 +178,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
 
     if( info->titles[title->idx] ) {
       //char *title_name = m_bd->titles[title->playlist]->name;
-      char *title_name = info->titles[title->idx]->name;
+      const char *title_name = info->titles[title->idx]->name;
       items.Add(GetTitle(title, title_name) );
     } else
       items.Add(GetTitle(title, main ? g_localizeStrings.Get(25004) /* Main Title */ : g_localizeStrings.Get(25005) /* Title */));
