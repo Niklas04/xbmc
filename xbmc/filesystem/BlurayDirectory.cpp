@@ -166,7 +166,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
 
   minDuration = minDuration * MAIN_TITLE_LENGTH_PERCENT / 100;
   
-  bd_get_meta(m_bd)
+  bd_get_meta(m_bd);
     //char *disc_name = m_bd->disc_info.disc_name
 
   for (auto& title : titleList)
