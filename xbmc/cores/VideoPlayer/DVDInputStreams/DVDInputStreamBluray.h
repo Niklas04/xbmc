@@ -99,7 +99,7 @@ public:
 
   int GetChapter() override;
   int GetChapterCount() override;
-  void GetChapterName(std::string& name, int ch=-1) override;
+  void GetChapterName(std::string& name, int ch) override;
   int64_t GetChapterPos(int ch) override;
   bool SeekChapter(int ch) override;
 
