@@ -121,7 +121,8 @@ CFileItemPtr CBlurayDirectory::GetTitle(const BLURAY_TITLE_INFO* title, const st
   int duration = (int)(title->duration / 90000);
   item->GetVideoInfoTag()->SetDuration(duration);
   item->GetVideoInfoTag()->m_iTrack = title->playlist;
-  buf = StringUtils::Format(label.c_str(), title->playlist);
+  //buf = StringUtils::Format(label.c_str(), title->playlist);
+  buf = label.c_str();
   item->m_strTitle = buf;
   item->SetLabel(buf);
   chap = StringUtils::Format(g_localizeStrings.Get(25007).c_str(), title->chapter_count, StringUtils::SecondsToTimeString(duration).c_str());
@@ -176,12 +177,16 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
     if (title->duration < minDuration)
       continue;
 
-    if( info->titles[title->idx] ) {
+    if( info->titles[title->idx] && info->titles[title->idx]->name ) {
       //char *title_name = m_bd->titles[title->playlist]->name;
       const char *title_name = info->titles[title->idx]->name;
       items.Add(GetTitle(title, title_name) );
+    } else if( info->disc_name )
+      const char *disc_name = info->disc_name;
+      items.Add(GetTitle(title, disc_name) );
     } else
-      items.Add(GetTitle(title, main ? g_localizeStrings.Get(25004) /* Main Title */ : g_localizeStrings.Get(25005) /* Title */));
+      items.Add(GetTitle(title, main ? "Hauptfilm wiedergeben" /* Main Title */ : "Titel" /* Title */));
+      //items.Add(GetTitle(title, main ? g_localizeStrings.Get(25004) /* Main Title */ : g_localizeStrings.Get(25005) /* Title */));
     bd_free_title_info(title);
   }
 }
