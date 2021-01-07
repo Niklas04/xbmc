@@ -170,7 +170,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
    //char *disc_name = m_bd->disc_info.disc_name
   const BLURAY_DISC_INFO *info;
   info = bd_get_disc_info(m_bd);
-  //bd_get_meta(m_bd);
+  bd_get_meta(m_bd);
    
   for (auto& title : titleList)
   {
