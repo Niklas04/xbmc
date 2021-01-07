@@ -923,7 +923,7 @@ int CDVDInputStreamBluray::GetChapterCount()
     return 0;
 }
 
-void *GetChapterName(std::string& name, int ch)
+void CDVDInputStreamBluray::GetChapterName(std::string& name, int ch)
 {
   const BLURAY_DISC_INFO *info;
   info = bd_get_disc_info(m_bd);
