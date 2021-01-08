@@ -111,7 +111,7 @@ void CGUIDialogAudioSettings::OnSettingChanged(const std::shared_ptr<const CSett
   {
     CVideoSettings vs = g_application.GetAppPlayer().GetVideoSettings();
     vs.m_CenterMixLevel = std::static_pointer_cast<const CSettingInt>(setting)->GetValue();
-    g_application.GetAppPlayer().SetVideoSettings(vs);
+    //g_application.GetAppPlayer().SetVideoSettings(vs);
   }
   else if (settingId == SETTING_AUDIO_DELAY)
   {
