@@ -711,6 +711,7 @@ void CMediaManager::OnStorageUnsafelyRemoved(const std::string &label)
 
 CMediaManager::DiscInfo CMediaManager::GetDiscInfo(const std::string& mediaPath)
 {
+  xbmc.log('MediaManager.cpp: Inside GetDiscInfo', xbmc.LOGINFO);
   DiscInfo info;
 
   if (mediaPath.empty())
@@ -720,6 +721,7 @@ CMediaManager::DiscInfo CMediaManager::GetDiscInfo(const std::string& mediaPath)
   std::string pathVideoTS = URIUtils::AddFileToFolder(mediaPath, "VIDEO_TS");
   if (CFile::Exists(URIUtils::AddFileToFolder(pathVideoTS, "VIDEO_TS.IFO")))
   {
+    xbmc.log('GetDiscInfo: Found DVD', xbmc.LOGINFO);
     info.type = "DVD";
     // correct the filename if needed
     if (StringUtils::StartsWith(pathVideoTS, "dvd://") ||
@@ -737,9 +739,11 @@ CMediaManager::DiscInfo CMediaManager::GetDiscInfo(const std::string& mediaPath)
     info.serial = dvdNavigator.GetDVDSerialString();
   }
 #ifdef HAVE_LIBBLURAY
+  xbmc.log('GetDiscInfo: Libbluray is set', xbmc.LOGINFO);
   // check for Blu-ray discs
   else if (XFILE::CFile::Exists(URIUtils::AddFileToFolder(mediaPath, "BDMV", "index.bdmv")))
   {
+    xbmc.log('GetDiscInfo: Found Blu-ray', xbmc.LOGINFO);
     info.type = "Blu-ray";
     CBlurayDirectory bdDir;
 
