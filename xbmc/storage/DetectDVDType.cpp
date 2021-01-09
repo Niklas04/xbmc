@@ -273,10 +273,10 @@ void CDetectDVDMedia::DetectMediaType()
 
 void CDetectDVDMedia::SetNewDVDShareUrl( const std::string& strNewUrl, bool bCDDA, const std::string& strDiscLabel )
 {
-  std::string strDescription = "DVD";
+  std::string strDescription = "Bluray";
   if (bCDDA) strDescription = "CD";
 
-  if (strDiscLabel != "") strDescription = strDiscLabel;
+  //if (strDiscLabel != "") strDescription = strDiscLabel;
 
   // Store it in case others want it
   m_diskLabel = strDescription;
