@@ -177,7 +177,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
     if (title->duration < minDuration)
       continue;
 
-    const char *title_name = GetBlurayTitle();
+    const std::string title_name = GetBlurayTitle();
     if( title_name ) {
     //if( info->titles[title->idx] && info->titles[title->idx]->name ) {
       //char *title_name = m_bd->titles[title->playlist]->name;
