@@ -260,7 +260,7 @@ void CDetectDVDMedia::DetectMediaType()
   std::string strLabel;
   if (bCDDA)
   {
-    strLabel = "Audio-CD";
+    strLabel = "DVDCDAudio"; //Audio-CD
   }
   else
   {
