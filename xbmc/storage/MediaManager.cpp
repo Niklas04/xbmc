@@ -739,7 +739,6 @@ CMediaManager::DiscInfo CMediaManager::GetDiscInfo(const std::string& mediaPath)
     info.serial = dvdNavigator.GetDVDSerialString();
   }
 #ifdef HAVE_LIBBLURAY
-  CLog::Log(LOGDEBUG, "GetDiscInfo: Libbluray is set");
   // check for Blu-ray discs
   else if (XFILE::CFile::Exists(URIUtils::AddFileToFolder(mediaPath, "BDMV", "index.bdmv")))
   {
@@ -753,6 +752,10 @@ CMediaManager::DiscInfo CMediaManager::GetDiscInfo(const std::string& mediaPath)
     info.name = bdDir.GetBlurayTitle();
     info.serial = bdDir.GetBlurayID();
   }
+#endif
+  
+#ifdef HAVE_LIBBLURAY
+  CLog::Log(LOGDEBUG, "GetDiscInfo: Libbluray is set");
 #endif
 
   return info;
