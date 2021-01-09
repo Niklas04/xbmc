@@ -110,7 +110,7 @@ void CGUIDialogAudioSettings::OnSettingChanged(const std::shared_ptr<const CSett
   else if (settingId == SETTING_AUDIO_CENTERMIXLEVEL)
   {
     CVideoSettings vs = g_application.GetAppPlayer().GetVideoSettings();
-    xbmc.log('AudioSettings: GetVideoSettings: Subtitle (' + vs.m_SubtitleOn + ')', xbmc.LOGINFO);
+    CLog::Log(LOGDEBUG, "AudioSettings: GetVideoSettings: Subtitle (" + vs.m_SubtitleOn + ")");
     vs.m_CenterMixLevel = std::static_pointer_cast<const CSettingInt>(setting)->GetValue();
     //g_application.GetAppPlayer().SetVideoSettings(vs);
   }
