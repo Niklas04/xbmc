@@ -183,7 +183,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
       //char *title_name = m_bd->titles[title->playlist]->name;
       const char *title_name = info->titles[title->idx]->name;
       items.Add(GetTitle(title, title_name) );
-    if( info->disc_name ) {
+    }else if( info->disc_name ) {
      const char *disc_name = info->disc_name;
      items.Add(GetTitle(title, disc_name) );
     } else
