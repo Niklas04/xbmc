@@ -505,10 +505,12 @@ std::string CMediaManager::GetDiskLabel(const std::string& devicePath)
   info = GetDiscInfo(mediaPath);
   if (!info.name.empty())
   {
+    CLog::Log(LOGINFO, "MediaManager.cpp: GetDiscLabel: Disc-Name is not empty");
     m_mapDiscInfo[mediaPath] = info;
     return info.name;
   }
 
+  CLog::Log(LOGINFO, "MediaManager.cpp: GetDiscLabel: Disc-Name is empty");
   std::string strDevice = TranslateDevicePath(devicePath);
   WCHAR cVolumenName[128];
   WCHAR cFSName[128];
