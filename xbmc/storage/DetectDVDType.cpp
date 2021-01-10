@@ -260,7 +260,7 @@ void CDetectDVDMedia::DetectMediaType()
   std::string strLabel;
   if (bCDDA)
   {
-    strLabel = "DVDCDAudio"; //Audio-CD
+    strLabel = "Audio-CD";
   }
   else
   {
@@ -275,10 +275,10 @@ void CDetectDVDMedia::DetectMediaType()
 
 void CDetectDVDMedia::SetNewDVDShareUrl( const std::string& strNewUrl, bool bCDDA, const std::string& strDiscLabel )
 {
-  std::string strDescription = "Bluray";
+  std::string strDescription = "DVD";
   if (bCDDA) strDescription = "CD";
 
-  //if (strDiscLabel != "") strDescription = strDiscLabel;
+  if (strDiscLabel != "") strDescription = strDiscLabel;
   
   if(strDiscLabel != "") 
     CLog::Log(LOGINFO, "DetectDVDType.cpp: SetNewShareUrl: Label is not empty");
