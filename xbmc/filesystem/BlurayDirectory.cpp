@@ -170,7 +170,7 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
    //char *disc_name = m_bd->disc_info.disc_name
   const BLURAY_DISC_INFO *info;
   info = bd_get_disc_info(m_bd);
-  //bd_get_meta(m_bd);
+  bd_get_meta(m_bd);
    
   for (auto& title : titleList)
   {
@@ -179,9 +179,9 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
 
     const std::string title_name = GetBlurayTitle();
     //if( title_name != "" ) {
-    //if( info->titles[title->idx] && info->titles[title->idx]->name ) {
+    if( info->titles[title->idx] && info->titles[title->idx]->name ) {
       //char *title_name = m_bd->titles[title->playlist]->name;
-      //const char *title_name = info->titles[title->idx]->name;
+      const char *title_name = info->titles[title->idx]->name;
       items.Add(GetTitle(title, title_name) );
     if( info->disc_name ) {
      const char *disc_name = info->disc_name;
