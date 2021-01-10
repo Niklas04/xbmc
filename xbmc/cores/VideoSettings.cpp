@@ -10,10 +10,11 @@
 
 #include "threads/CriticalSection.h"
 #include "threads/SingleLock.h"
+#include "utils/log.h"
 
 CVideoSettings::CVideoSettings()
 {
-  //CLog::Log(LOGINFO, "VideoSettings.cpp: Inside CVideoSettings");
+  CLog::Log(LOGINFO, "VideoSettings.cpp: Inside CVideoSettings");
   m_InterlaceMethod = VS_INTERLACEMETHOD_AUTO;
   m_ScalingMethod = VS_SCALINGMETHOD_LINEAR;
   m_ViewMode = ViewModeNormal;
