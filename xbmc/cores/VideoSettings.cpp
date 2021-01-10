@@ -13,6 +13,7 @@
 
 CVideoSettings::CVideoSettings()
 {
+  CLog::Log(LOGINFO, "VideoSettings.cpp: Inside CVideoSettings");
   m_InterlaceMethod = VS_INTERLACEMETHOD_AUTO;
   m_ScalingMethod = VS_SCALINGMETHOD_LINEAR;
   m_ViewMode = ViewModeNormal;
