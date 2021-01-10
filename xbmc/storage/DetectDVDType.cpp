@@ -280,7 +280,7 @@ void CDetectDVDMedia::SetNewDVDShareUrl( const std::string& strNewUrl, bool bCDD
 
   //if (strDiscLabel != "") strDescription = strDiscLabel;
   
-  if(strDdiscLabel != "") 
+  if(strDiscLabel != "") 
     CLog::Log(LOGINFO, "DetectDVDType.cpp: SetNewShareUrl: Label is not empty");
 
   // Store it in case others want it
