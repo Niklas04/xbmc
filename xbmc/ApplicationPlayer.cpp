@@ -977,11 +977,14 @@ bool CApplicationPlayer::IsRemotePlaying()
 
 CVideoSettings CApplicationPlayer::GetVideoSettings()
 {
+  CLog::Log(LOGINFO, "ApplicationPlayer.cpp: Inside GetVideoSettings");
   std::shared_ptr<IPlayer> player = GetInternal();
   if (player)
   {
+    CLog::Log(LOGINFO, "ApplicationPlayer.cpp: GetVideoSettings: Returning player->GetVideoSettings");
     return player->GetVideoSettings();
   }
+  CLog::Log(LOGINFO, "ApplicationPlayer.cpp: GetVideoSettings: Returning CVideoSettings");
   return CVideoSettings();
 }
 
