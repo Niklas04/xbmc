@@ -306,6 +306,8 @@ std::vector<BLURAY_TITLE_INFO*> CBlurayDirectory::GetUserPlaylists()
 {
   std::string root = m_url.GetHostName();
   std::string discInfPath = URIUtils::AddFileToFolder(root, "disc.inf");
+  CLog::Log(LOGINFO, "BlurayDirectory.cpp: GetUserPlaylists: Root: %s", root);
+  CLog::Log(LOGINFO, "BlurayDirectory.cpp: GetUserPlaylists: discInfPath: %s", discInfPath);
   std::vector<BLURAY_TITLE_INFO*> userTitles;
   CFile file;
   char buffer[1025];
