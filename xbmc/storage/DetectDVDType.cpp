@@ -264,8 +264,10 @@ void CDetectDVDMedia::DetectMediaType()
   }
   else
   {
+    CLog::Log(LOGINFO, "DetectDVDType.cpp: Get Disc Label for non Audio-CD");
     strLabel = m_pCdInfo->GetDiscLabel();
     StringUtils::TrimRight(strLabel);
+    CLog::Log(LOGINFO, "DetectDVDType.cpp: DiscLabel: %s", strLabel.c_str());
   }
 
   SetNewDVDShareUrl( strNewUrl , bCDDA, strLabel);
@@ -277,6 +279,9 @@ void CDetectDVDMedia::SetNewDVDShareUrl( const std::string& strNewUrl, bool bCDD
   if (bCDDA) strDescription = "CD";
 
   //if (strDiscLabel != "") strDescription = strDiscLabel;
+  
+  if(strDdiscLabel != "") 
+    CLog::Log(LOGINFO, "DetectDVDType.cpp: SetNewShareUrl: Label is not empty");
 
   // Store it in case others want it
   m_diskLabel = strDescription;
