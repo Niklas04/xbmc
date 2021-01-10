@@ -11,6 +11,7 @@
 #include "threads/CriticalSection.h"
 #include "threads/SingleLock.h"
 #include "utils/log.h"
+#include "utils/StringUtils.h"
 
 CVideoSettings::CVideoSettings()
 {
