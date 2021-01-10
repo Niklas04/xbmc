@@ -18,6 +18,7 @@
 #include "guilib/GUIComponent.h"
 #include "guilib/GUIWindowManager.h"
 #include "settings/MediaSettings.h"
+#include "utils/log.h"
 
 std::shared_ptr<IPlayer> CApplicationPlayer::GetInternal() const
 {
