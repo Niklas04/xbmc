@@ -96,6 +96,7 @@ bool CAutorun::PlayDisc(const std::string& path, bool bypassSettings, bool start
   if ( !bypassSettings && CServiceBroker::GetSettingsComponent()->GetSettings()->GetInt(CSettings::SETTING_AUDIOCDS_AUTOACTION) != AUTOCD_PLAY && !CServiceBroker::GetSettingsComponent()->GetSettings()->GetBool(CSettings::SETTING_DVDS_AUTORUN))
     return false;
 
+  CLog::Log(LOGINFO, "Autorun.cpp: Inside PlayDisc");
   int nSize = CServiceBroker::GetPlaylistPlayer().GetPlaylist( PLAYLIST_MUSIC ).size();
   int nAddedToPlaylist = 0;
 
@@ -144,6 +145,7 @@ bool CAutorun::RunDisc(IDirectory* pDir, const std::string& strDrive, int& nAdde
     return false;
   }
 
+  CLog::Log(LOGINFO, "Autorun.cpp: Inside RunDisc");
   bool bPlaying(false);
   CFileItemList vecItems;
 
@@ -171,6 +173,7 @@ bool CAutorun::RunDisc(IDirectory* pDir, const std::string& strDrive, int& nAdde
   // is this a root folder we have to check the content to determine a disc type
   if (bRoot)
   {
+    CLog::Log(LOGINFO, "Autorun.cpp: PlayDisc: Is Root");
     std::string hddvdname = "";
     CFileItemPtr phddvdItem;
     bool bAutorunDVDs = CServiceBroker::GetSettingsComponent()->GetSettings()->GetBool(CSettings::SETTING_DVDS_AUTORUN);
@@ -214,8 +217,10 @@ bool CAutorun::RunDisc(IDirectory* pDir, const std::string& strDrive, int& nAdde
         if (StringUtils::EqualsNoCase(name, "BDMV") && bAllowVideo
         && (bypassSettings || bAutorunDVDs))
         {
+          CLog::Log(LOGINFO, "Autorun.cpp: PlayDisc: Is Bluray");
           CFileItemPtr item(new CFileItem(URIUtils::AddFileToFolder(pItem->GetPath(), "index.bdmv"), false));
-          item->SetLabel(CServiceBroker::GetMediaManager().GetDiskLabel(strDrive));
+          item->SetLabel("Test");
+          //item->SetLabel(CServiceBroker::GetMediaManager().GetDiskLabel(strDrive));
           item->GetVideoInfoTag()->m_strFileNameAndPath =
               CServiceBroker::GetMediaManager().GetDiskUniqueId(strDrive);
 
