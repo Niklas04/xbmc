@@ -4521,8 +4521,10 @@ double CApplication::GetTotalTime() const
   {
     if (m_stackHelper.IsPlayingRegularStack())
       rc = m_stackHelper.GetStackTotalTimeMs() * 0.001f;
-    else
+    else {
       rc = static_cast<double>(m_appPlayer.GetTotalTime() * 0.001f);
+      CLog::Log(LOGDEBUG, "Application.cpp::GetTotalTime");
+    }
   }
 
   return rc;
