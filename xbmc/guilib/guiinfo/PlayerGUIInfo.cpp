@@ -42,6 +42,7 @@ CPlayerGUIInfo::~CPlayerGUIInfo() = default;
 
 int CPlayerGUIInfo::GetTotalPlayTime() const
 {
+  CLog::Log(LOGINFO, "PlayerGUIInfo.cpp::GetTotalPlayTime");
   return std::lrint(g_application.GetTotalTime());
 }
 
