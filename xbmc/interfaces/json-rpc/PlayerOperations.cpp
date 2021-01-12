@@ -1501,9 +1501,10 @@ JSONRPC_STATUS CPlayerOperations::GetPropertyValue(PlayerType player, const std:
       case Audio:
       {
         int ms = 0;
-        if (!IsPVRChannel())
+        if (!IsPVRChannel()) {
+          CLog::Log(LOGINFO, "PlayerOperations.cpp::GetPropertyValue");
           ms = (int)(g_application.GetTotalTime() * 1000.0);
-        else
+        }else
         {
           std::shared_ptr<CPVREpgInfoTag> epg(GetCurrentEpg());
           if (epg)
