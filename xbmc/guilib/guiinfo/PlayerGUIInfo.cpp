@@ -210,14 +210,20 @@ bool CPlayerGUIInfo::GetLabel(std::string& value, const CFileItem *item, int con
     case PLAYER_PATH:
     case PLAYER_FILENAME:
     case PLAYER_FILEPATH:
-      value = GUIINFO::GetFileInfoLabelValueFromPath(info.m_info, item->GetPath());
+      CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: FILENAME");
+      value = "Test"; //GUIINFO::GetFileInfoLabelValueFromPath(info.m_info, item->GetPath());
+      CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: FILENAME: %s", GUIINFO::GetFileInfoLabelValueFromPath(info.m_info, item->GetPath()));
       return true;
     case PLAYER_TITLE:
-	    CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: PLAYER_TITLE");
+      CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: PLAYER_TITLE");
       // use label or drop down to title from path
-      value = "TEST"; // item->GetLabel();
-      if (value.empty())
+      value = item->GetLabel();
+      CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: PLAYER_TITLE: %s", value);
+      if (value.empty()) {
+	CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: PLAYER_TITLE: Value empty ...");
         value = CUtil::GetTitleFromPath(item->GetPath());
+        CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: PLAYER_TITLE: %s", value);
+      }
       return true;
     case PLAYER_PLAYSPEED:
     {
