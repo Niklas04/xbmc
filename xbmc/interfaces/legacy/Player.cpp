@@ -401,6 +401,7 @@ namespace XBMCAddon
 
     double Player::getTotalTime()
     {
+      CLog::Log(LOGINFO, "Player.cpp::getTotalTime");
       XBMC_TRACE;
       if (!g_application.GetAppPlayer().IsPlaying())
         throw PlayerException("XBMC is not playing any media file");
