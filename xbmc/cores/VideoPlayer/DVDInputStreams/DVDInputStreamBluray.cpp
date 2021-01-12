@@ -896,8 +896,9 @@ void CDVDInputStreamBluray::OverlayCallbackARGB(const struct bd_argb_overlay_s *
 
 int CDVDInputStreamBluray::GetTotalTime()
 {
+  CLog::Log(LOGDEBUG, "CDVDInputStreamBluray::GetTotalTime");
   if(m_titleInfo)
-    return static_cast<int>(m_titleInfo->duration / 85);
+    return static_cast<int>(m_titleInfo->duration / 90);
   else
     return 0;
 }
