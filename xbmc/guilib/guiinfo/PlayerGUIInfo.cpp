@@ -213,8 +213,9 @@ bool CPlayerGUIInfo::GetLabel(std::string& value, const CFileItem *item, int con
       value = GUIINFO::GetFileInfoLabelValueFromPath(info.m_info, item->GetPath());
       return true;
     case PLAYER_TITLE:
+	    CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: PLAYER_TITLE");
       // use label or drop down to title from path
-      value = item->GetLabel();
+      value = "TEST"; // item->GetLabel();
       if (value.empty())
         value = CUtil::GetTitleFromPath(item->GetPath());
       return true;
@@ -236,6 +237,7 @@ bool CPlayerGUIInfo::GetLabel(std::string& value, const CFileItem *item, int con
       return true;
     }
     case PLAYER_DURATION:
+	    CLog::Log(LOGDEBUG, "CPlayerGUIInfo::GetLabel: PLAYER_DURATION");
       value = GetDuration(static_cast<TIME_FORMAT>(info.GetData1()));
       return true;
     case PLAYER_TIME_REMAINING:
