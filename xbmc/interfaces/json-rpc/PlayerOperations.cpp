@@ -36,6 +36,8 @@
 #include "settings/DisplaySettings.h"
 #include "utils/Variant.h"
 #include "video/VideoDatabase.h"
+#include "utils/log.h"
+#include "utils/URIUtils.h"
 
 #include <map>
 #include <tuple>
