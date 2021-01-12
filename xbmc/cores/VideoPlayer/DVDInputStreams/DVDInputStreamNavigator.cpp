@@ -1222,6 +1222,7 @@ bool CDVDInputStreamNavigator::GetCurrentButtonInfo(CDVDOverlaySpu* pOverlayPict
 int CDVDInputStreamNavigator::GetTotalTime()
 {
   //We use buffers of this as they can get called from multiple threads, and could block if we are currently reading data
+  CLog::Log(LOGINFO, "DVDInputStreamNavigator.cpp::GetTotalTime");
   return m_iTotalTime;
 }
 
