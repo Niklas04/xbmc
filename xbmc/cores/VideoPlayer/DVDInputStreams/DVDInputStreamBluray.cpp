@@ -489,14 +489,17 @@ void CDVDInputStreamBluray::ProcessEvent() {
     if (m_event.param == BLURAY_TITLE_TOP_MENU)
     {
       m_title = disc_info->top_menu;
+      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: TopMenu: %s", m_title);
       m_menu = true;
       break;
     }
-    else if (m_event.param == BLURAY_TITLE_FIRST_PLAY)
+    else if (m_event.param == BLURAY_TITLE_FIRST_PLAY) {
       m_title = disc_info->first_play;
-    else if (m_event.param <= disc_info->num_titles)
+      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: FirstPlay: %s", m_title);
+    }else if (m_event.param <= disc_info->num_titles) {
       m_title = disc_info->titles[m_event.param];
-    else
+      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: Specific Title: %s", m_title);
+    }else
       m_title = nullptr;
     m_menu = false;
 
