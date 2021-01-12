@@ -177,16 +177,16 @@ void CBlurayDirectory::GetTitles(bool main, CFileItemList &items)
     if (title->duration < minDuration)
       continue;
 
-    const std::string title_name = GetBlurayTitle();
+    //const std::string title_name = GetBlurayTitle();
     //if( title_name != "" ) {
-    if( info->titles[title->idx] && info->titles[title->idx]->name ) {
+    /*if( info->titles[title->idx] && info->titles[title->idx]->name ) {
       //char *title_name = m_bd->titles[title->playlist]->name;
       const char *title_name = info->titles[title->idx]->name;
       items.Add(GetTitle(title, title_name) );
     }else if( info->disc_name ) {
      const char *disc_name = info->disc_name;
      items.Add(GetTitle(title, disc_name) );
-    } else
+    } else*/
       items.Add(GetTitle(title, main ? "Hauptfilm wiedergeben" /* Main Title */ : "Titel" /* Title */));
       //items.Add(GetTitle(title, main ? g_localizeStrings.Get(25004) /* Main Title */ : g_localizeStrings.Get(25005) /* Title */));
     bd_free_title_info(title);
