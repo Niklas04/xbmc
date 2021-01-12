@@ -489,16 +489,16 @@ void CDVDInputStreamBluray::ProcessEvent() {
     if (m_event.param == BLURAY_TITLE_TOP_MENU)
     {
       m_title = disc_info->top_menu;
-      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: TopMenu: %s", m_title);
+      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: TopMenu");
       m_menu = true;
       break;
     }
     else if (m_event.param == BLURAY_TITLE_FIRST_PLAY) {
       m_title = disc_info->first_play;
-      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: FirstPlay: %s", m_title);
+      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: FirstPlay");
     }else if (m_event.param <= disc_info->num_titles) {
       m_title = disc_info->titles[m_event.param];
-      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: Specific Title: %s", m_title);
+      CLog::Log(LOGDEBUG, "CDVDInputStreamBluray - BD_EVENT_TITLE: Specific Title");
     }else
       m_title = nullptr;
     m_menu = false;
@@ -897,7 +897,7 @@ void CDVDInputStreamBluray::OverlayCallbackARGB(const struct bd_argb_overlay_s *
 int CDVDInputStreamBluray::GetTotalTime()
 {
   if(m_titleInfo)
-    return static_cast<int>(m_titleInfo->duration / 90);
+    return static_cast<int>(m_titleInfo->duration / 85);
   else
     return 0;
 }
